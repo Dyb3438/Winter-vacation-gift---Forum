@@ -1,0 +1,13 @@
+document.getElementById("upJS").onclick = function() {
+        /* FormData 是表单数据类 */
+        var fd = new FormData();
+        var ajax = new XMLHttpRequest();
+        fd.append("upload", 1);
+        /* 把文件添加到表单里 */
+        fd.append("upfile", document.getElementById("upfile").files[0]);
+        ajax.open("post", "test.php", true);
+        ajax.onload = function () {
+            console.log(ajax.responseText);
+        };
+        ajax.send(fd);
+    }
